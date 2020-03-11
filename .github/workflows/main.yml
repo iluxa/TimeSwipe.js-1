@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'Dockerfile'
+      - 'build.sh'
 jobs:
   build:
     runs-on: ubuntu-latest
