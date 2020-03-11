@@ -31,7 +31,7 @@ jobs:
         id: upload-release
         uses: csexton/release-asset-action@v2
         with:
-          pattern: "timeswipe*.tar.gz"
+          pattern: "*timeswipe*.tar.gz"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           release-url: ${{ steps.create_release.outputs.upload_url }}
 

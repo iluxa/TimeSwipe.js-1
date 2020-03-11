@@ -1,5 +1,5 @@
 {
-  "name": "timeswipe",
+  "name": "gilyav_timeswipe",
   "version": "0.0.22",
   "description": "TimeSwipe js NAPI",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "node-pre-gyp": "^0.14.0"
   },
   "binary": {
-    "module_name": "timeswipe",
+    "module_name": "gilyav_timeswipe",
     "remote_path": "/iluxa/TimeSwipe.js-1/releases/download/v{version}/",
     "module_path": "./build/Release/obj.target",
     "host": "https://github.com"
