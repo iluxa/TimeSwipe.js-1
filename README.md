@@ -91,19 +91,14 @@ Stop measurement.
 
 ## Build instruction
 
-### Build docker image
+### Make binary packages locally using docker
 ```
-docker build -t timeswipe:js .
-```
-
-### Make binary packages
-```
-docker run --rm -v "$PWD/":/usr/src -w /usr/src timeswipe:js /usr/src/build.sh
+docker run --rm -v "$PWD/":/usr/src -w /usr/src pandaofficial/timeswipe_js /usr/src/build.sh
 ```
 
-after above command two files should be built in current directory:
-
-timeswipe-\*.tar.gz
-timeswipe-\*-linux-arm64.tar.gz
-
-create new release in github and move above file to the release
+## Release new version
+```
+npm version X.Y.Z
+git push origin vX.Y.Z
+npm publish
+```
