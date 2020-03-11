@@ -1,6 +1,6 @@
 {
-  "name": "timeswipe",
-  "version": "0.0.6",
+  "name": "gilyav_timeswipe",
+  "version": "0.0.16",
   "description": "TimeSwipe js NAPI",
   "main": "index.js",
   "gypfile": true,
@@ -16,12 +16,11 @@
     "bindings": "^1.5.0",
     "napi-thread-safe-callback": "0.0.6",
     "node-addon-api": "^2.0.0",
-    "node-pre-gyp": "^0.14.0",
-    "system-sleep": "^1.3.6"
+    "node-pre-gyp": "^0.14.0"
   },
   "binary": {
-    "module_name": "timeswipe",
-    "remote_path": "/panda-official/TimeSwipe.js/releases/download/v{version}/",
+    "module_name": "gilyav_timeswipe",
+    "remote_path": "/iluxa/TimeSwipe.js-1/releases/download/v{version}/",
     "module_path": "./build/Release/obj.target",
     "host": "https://github.com"
   }

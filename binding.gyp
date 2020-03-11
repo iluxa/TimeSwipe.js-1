@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "timeswipe",
+        "target_name": "gilyav_timeswipe",
         "cflags!": [ "-fno-exceptions", "-Wall" ],
         "cflags_cc!": [ "-fno-exceptions", "-Wall" ],
         "sources": [
@@ -8,7 +8,8 @@
         ],
         'include_dirs': [
             "<!@(node -p \"require('node-addon-api').include\")",
-            "<!@(node -p \"require('napi-thread-safe-callback').include\")"
+            "<!@(node -p \"require('napi-thread-safe-callback').include\")",
+            "/usr/include"
         ],
         'libraries': [
             "/usr/lib/libtimeswipe.a",
