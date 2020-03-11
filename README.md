@@ -98,7 +98,7 @@ docker build -t timeswipe:js .
 
 ### Make binary packages
 ```
-docker run --rm -v "$PWD/":/usr/src timeswipe:js /usr/src/build.sh
+docker run --rm -v "$PWD/":/usr/src -w /usr/src timeswipe:js /usr/src/build.sh
 ```
 
 after above command two files should be built in current directory:
