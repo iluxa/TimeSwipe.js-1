@@ -1,7 +1,5 @@
 name: Publish Docker
 on: [push]
-    paths:
-        - 'Dockerfile'
 jobs:
   build:
     runs-on: ubuntu-latest
