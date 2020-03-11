@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "gilyav_timeswipe",
+        "target_name": "timeswipe",
         "cflags!": [ "-fno-exceptions", "-Wall" ],
         "cflags_cc!": [ "-fno-exceptions", "-Wall" ],
         "sources": [
