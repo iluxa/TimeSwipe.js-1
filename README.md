@@ -98,9 +98,9 @@ Stop measurement.
 docker run --rm -v "$PWD/":/usr/src -w /usr/src pandaofficial/timeswipe_js /usr/src/build.sh
 ```
 
-## Release new version
+## Release new version on master branch
 ```
-npm version X.Y.Z
+npm version patch
 npm publish
-git push origin vX.Y.Z
+git push --tags
 ```
