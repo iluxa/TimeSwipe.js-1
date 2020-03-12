@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: timeswipe_js
-          path: ./driver/build64/${{ steps.build_project.outputs.timeswipe_js }}
+          path: ${{ steps.build_project.outputs.timeswipe_js }}
 
   release:
     name: Create Github Release
