@@ -99,6 +99,6 @@ docker run --rm -v "$PWD/":/usr/src -w /usr/src pandaofficial/timeswipe_js /usr/
 ## Release new version
 ```
 npm version X.Y.Z
-git push origin vX.Y.Z
 npm publish
+git push origin vX.Y.Z
 ```
