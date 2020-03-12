@@ -1,3 +1,5 @@
+![](https://github.com/iluxa/TimeSwipe.js-1/workflows/Workflow/badge.svg)
+
 # [TimeSwipe](https://github.com/panda-official/TimeSwipe) wrapper for NodeJs [![npm version](https://badge.fury.io/js/timeswipe.svg)](https://badge.fury.io/js/timeswipe)
 
 ## Prerequisites

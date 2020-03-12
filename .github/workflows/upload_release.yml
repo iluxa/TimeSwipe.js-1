@@ -1,10 +1,11 @@
 on:
   push:
-    # Sequence of patterns matched against refs/tags
+    branches:
+      - master
     tags:
-    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    - 'v*'
 
-name: Upload Release Asset
+name: Workflow
 
 jobs:
   build:
@@ -16,22 +17,39 @@ jobs:
         uses: actions/checkout@v2
       - name: Build project
         id: build_project
-        run: /build.sh
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+            /build.sh
+            echo ::set-output name=timeswipe_js::$(ls *timeswipe*.tar.gz)
+      - name: Save build
+        uses: actions/upload-artifact@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-      - name: Upload release
-        id: upload-release
-        uses: csexton/release-asset-action@v2
-        with:
-          pattern: "*timeswipe*.tar.gz"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          release-url: ${{ steps.create_release.outputs.upload_url }}
+          name: timeswipe_js
+          path: ./driver/build64/${{ steps.build_project.outputs.timeswipe_js }}
+
+  release:
+    name: Create Github Release
+    if: contains(github.ref, 'tags/v')
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Load timeswipe_js
+      uses: actions/download-artifact@v1
+      with:
+        name: timeswipe_js
+    - name: Publish timeswipe_js
+      uses: csexton/release-asset-action@v2
+      with:
+        pattern: "timeswipe_js/*"
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        release-url: ${{ steps.create_release.outputs.upload_url }}
 
