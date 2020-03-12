@@ -19,12 +19,17 @@ jobs:
         id: build_project
         run: |
             /build.sh
+            echo "pwd:" # XXX
+            pwd #XXX
+            echo "ls -l BEGIN:" # XXX
+            ls -l #XXX
+            echo "ls -l END:" # XXX
             echo ::set-output name=timeswipe_js::$(ls *timeswipe*.tar.gz)
       - name: Save build
         uses: actions/upload-artifact@v1
         with:
           name: timeswipe_js
-          path: ./${{ steps.build_project.outputs.timeswipe_js }}
+          path: ./driver/${{ steps.build_project.outputs.timeswipe_js }}
 
   release:
     name: Create Github Release
