@@ -19,7 +19,7 @@
     "node-pre-gyp": "^0.14.0"
   },
   "binary": {
-    "module_name": "gilyav_timeswipe",
+    "module_name": "gilyav_timeswipe_bin",
     "remote_path": "/iluxa/TimeSwipe.js-1/releases/download/v{version}/",
     "module_path": "./build/Release/obj.target",
     "host": "https://github.com"
